@@ -7,7 +7,16 @@ require("dotenv").config();
 
 async function processAndUploadPDF(){
 
-    console.log("Everything is ok!");
+    try {
+        //1. pdf  loading 
+        const loader = new PDFLoader("src/data/BCA.pdf");
+        const rawDocs = await loader.load();
+        console.log(`PDF loaded : ${rawDocs.length} page..\n`);
+        
+        
+    } catch (error) {
+        
+    }
     
 
 }
