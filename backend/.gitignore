@@ -1,2 +1,8 @@
-node_modules
+# Node Modules
+node_modules/
+
+# Environment Variables
 .env
+
+# Data Files (Do not upload PDFs or local datasets)
+src/data/*.pdf
