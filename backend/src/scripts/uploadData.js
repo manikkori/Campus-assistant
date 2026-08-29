@@ -35,9 +35,12 @@ async function processAndUploadPDF(){
             maxConcurrency:5
         });
         
+        console.log("data successfully uploaded to pinecone.");
+        
         
         
     } catch (error) {
+        
         console.log("error: ", error.message);
         
     }
