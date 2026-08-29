@@ -19,7 +19,11 @@ async function processAndUploadPDF(){
             chunkOverlap:200,
         });
 
+        const chunks = await textSplitter.splitDocuments(rawDocs)
+        console.log(`Splitted into ${chunks.length} chunks.\n`);
 
+        
+        
         
     } catch (error) {
         console.log("error: ", error.message);
