@@ -22,7 +22,11 @@ async function processAndUploadPDF(){
         const chunks = await textSplitter.splitDocuments(rawDocs)
         console.log(`Splitted into ${chunks.length} chunks.\n`);
 
-        
+        //3. Embeddings setup (384 dimensions model) 
+        const embeddings = new HuggingFaceTransformersEmbeddings({
+            modelName:"Xenova/all-MiniLM-L6-v2",
+
+        });
         
         
     } catch (error) {
