@@ -9,7 +9,7 @@ async function processAndUploadPDF(){
 
     try {
         //1. pdf  loading 
-        const loader = new PDFLoader("src/data/BCA.pdf");
+        const loader = new PDFLoader("src/data/MCA.pdf");
         const rawDocs = await loader.load();
         console.log(`PDF loaded : ${rawDocs.length} page..\n`);
         
@@ -27,6 +27,14 @@ async function processAndUploadPDF(){
             modelName:"Xenova/all-MiniLM-L6-v2",
 
         });
+
+        console.log("Converting to vector and uploading to pinecone clode...");
+        //4. pinecone me push karna
+        await PineconeStore.fromDocuments(chunks, embeddings , {
+            pineconeIndex:pineconeIndex,
+            maxConcurrency:5
+        });
+        
         
         
     } catch (error) {
